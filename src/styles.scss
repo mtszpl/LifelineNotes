@@ -1,1 +1,258 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import "~@angular/material/theming";
+
+$blue-palette: (
+    50: #e0defa,
+    100: #ceccf0,
+    200: #9d99e1,
+    300: #6b66d3,
+    400: #3a33c4,
+    500: #0900b5,
+    600: #070091,
+    700: #05006d,
+    800: #040048,
+    900: #020024,
+    contrast: (50: #1d1d1d,
+        100: #393939,
+        200: #565656,
+        300: #727272,
+        400: #8f8f8f,
+        500: #a5a5a5,
+        600: #bcbcbc,
+        700: #d2d2d2,
+        800: #e9e9e9,
+        900: #f0f0f0)
+);
+$dark-blue-palette: (
+    50: #020024,
+    100: #040048,
+    200: #05006d,
+    300: #070091,
+    400: #0900b5,
+    500: #3a33c4,
+    600: #6b66d3,
+    700: #9d99e1,
+    800: #ceccf0,
+    900: #e0defa,
+    contrast: (50: #1d1d1d,
+        100: #393939,
+        200: #565656,
+        300: #727272,
+        400: #8f8f8f,
+        500: #a5a5a5,
+        600: #bcbcbc,
+        700: #d2d2d2,
+        800: #e9e9e9,
+        900: #f0f0f0)
+);
+
+$green-palette: (
+    50: #d7fad9,
+    100: #d3ffd6,
+    200: #a6ffae,
+    300: #7aff85,
+    400: #4dff5d,
+    500: #21ff34,
+    600: #1acc2a,
+    700: #14991f,
+    800: #0d6615,
+    900: #07330a,
+    contrast: (50: #1d1d1d,
+        100: #393939,
+        200: #565656,
+        300: #727272,
+        400: #8f8f8f,
+        500: #a5a5a5,
+        600: #bcbcbc,
+        700: #d2d2d2,
+        800: #e9e9e9,
+        900: #f0f0f0)
+);
+$dark-green-palette: (
+    50: #07330a,
+    100: #0d6615,
+    200: #14991f,
+    300: #1acc2a,
+    400: #21ff34,
+    500: #4dff5d,
+    600: #7aff85,
+    700: #a6ffae,
+    800: #d3ffd6,
+    900: #d7fad9,
+    contrast: (50: #1d1d1d,
+        100: #393939,
+        200: #565656,
+        300: #727272,
+        400: #8f8f8f,
+        500: #a5a5a5,
+        600: #bcbcbc,
+        700: #d2d2d2,
+        800: #e9e9e9,
+        900: #f0f0f0)
+);
+
+$red-palette: (
+    50: #ffcccc,
+    100: #f5cccc,
+    200: #eb9999,
+    300: #e06666,
+    400: #d63333,
+    500: #cc0000,
+    600: #a30000,
+    700: #7a0000,
+    800: #520000,
+    900: #290000,
+    contrast: (50: #1d1d1d,
+        100: #393939,
+        200: #565656,
+        300: #727272,
+        400: #8f8f8f,
+        500: #a5a5a5,
+        600: #bcbcbc,
+        700: #d2d2d2,
+        800: #e9e9e9,
+        900: #f0f0f0)
+);
+$dark-red-palette: (
+    50: #290000,
+    100: #520000,
+    200: #7a0000,
+    300: #a30000,
+    400: #cc0000,
+    500: #d63333,
+    600: #e06666,
+    700: #eb9999,
+    800: #f5cccc,
+    900: #ffcccc,
+    contrast: (50: #1d1d1d,
+        100: #393939,
+        200: #565656,
+        300: #727272,
+        400: #8f8f8f,
+        500: #a5a5a5,
+        600: #bcbcbc,
+        700: #d2d2d2,
+        800: #e9e9e9,
+        900: #f0f0f0)
+);
+
+$grey-palette: (
+    50: #f0f0f0,
+    100: #e9e9e9,
+    200: #d2d2d2,
+    300: #bcbcbc,
+    400: #a5a5a5,
+    500: #8f8f8f,
+    600: #727272,
+    700: #565656,
+    800: #393939,
+    900: #1d1d1d
+);
+$dark-grey-palette: (
+    50: #1d1d1d,
+    100: #393939,
+    200: #565656,
+    300: #727272,
+    400: #8f8f8f,
+    500: #a5a5a5,
+    600: #bcbcbc,
+    700: #d2d2d2,
+    800: #e9e9e9,
+    900: #f0f0f0
+);
+$light-primary: mat.define-palette(mat.$blue-palette);
+$light-warning: mat.define-palette(mat.$red-palette);
+$light-accent: mat.define-palette(mat.$green-palette);
+$light-basic: mat.define-palette(mat.$grey-palette);
+
+$light-theme: mat.define-light-theme((color: (primary: $light-primary,
+                accent: $light-accent,
+                warning: $light-warning,
+                basic: $light-basic,
+            )));
+
+$dark-primary: mat.define-palette((50: #020024,
+            100: #040048,
+            200: #05006d,
+            300: #070091,
+            400: #0900b5,
+            500: #3a33c4,
+            600: #6b66d3,
+            700: #9d99e1,
+            800: #ceccf0,
+            900: #e0defa,
+            contrast: (50: #1d1d1d,
+                100: #393939,
+                200: #565656,
+                300: #727272,
+                400: #8f8f8f,
+                500: #a5a5a5,
+                600: #bcbcbc,
+                700: #d2d2d2,
+                800: #e9e9e9,
+                900: #f0f0f0)));
+$dark-accent: mat.define-palette((50: #07330a,
+            100: #0d6615,
+            200: #14991f,
+            300: #1acc2a,
+            400: #21ff34,
+            500: #4dff5d,
+            600: #7aff85,
+            700: #a6ffae,
+            800: #d3ffd6,
+            900: #d7fad9,
+            contrast: (50: #1d1d1d,
+                100: #393939,
+                200: #565656,
+                300: #727272,
+                400: #8f8f8f,
+                500: #a5a5a5,
+                600: #bcbcbc,
+                700: #d2d2d2,
+                800: #e9e9e9,
+                900: #f0f0f0)));
+$dark-warning: mat.define-palette((50: #290000,
+            100: #520000,
+            200: #7a0000,
+            300: #a30000,
+            400: #cc0000,
+            500: #d63333,
+            600: #e06666,
+            700: #eb9999,
+            800: #f5cccc,
+            900: #ffcccc,
+            contrast: (50: #1d1d1d,
+                100: #393939,
+                200: #565656,
+                300: #727272,
+                400: #8f8f8f,
+                500: #a5a5a5,
+                600: #bcbcbc,
+                700: #d2d2d2,
+                800: #e9e9e9,
+                900: #f0f0f0)));
+
+
+$dark-theme: mat.define-dark-theme((color: (primary: $dark-primary,
+                accent: $dark-accent,
+                warning: $dark-warning
+            )));
+
+.light-theme {
+    @include mat.all-component-themes($light-theme)
+}
+
+.dark-theme {
+    @include mat.all-component-themes($dark-theme)
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
