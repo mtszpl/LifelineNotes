@@ -1,7 +1,18 @@
+@use './_app.component-theme' as theme;
+
 .app-container {
     width: 100%;
     height: 100%;
 }
+
+.light-theme{
+    @include theme.light-theme;
+}
+
+.dark-theme{   
+    @include theme.dark-theme;
+}
+
 
 .drawer-content {
     display: flex;

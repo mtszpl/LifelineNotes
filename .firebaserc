@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lifelinenotes": {
+      "hosting": {
+        "notes": [
+          "lifelinenotes"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lifelinenotes"
+  }
+}

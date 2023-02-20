@@ -8,12 +8,15 @@
     </mat-drawer>
 
     <mat-drawer-content>
-        <mat-toolbar color="primary">
+        <mat-toolbar class="toolbar" color="primary">
             <button mat-icon-button (click)="drawer.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
             <span>Lifeline Notes</span>
             <span class="in-between"></span>
+            <button mat-button (click)="toggleMode()">
+                <mat-icon>wb_sunny</mat-icon>
+            </button>
             <mat-icon>account_circle</mat-icon>
         </mat-toolbar>
         <div class="drawer-content">
