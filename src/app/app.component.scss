@@ -13,12 +13,20 @@
     @include theme.dark-theme;
 }
 
+.drawer-head {
+    width: 100%;
+    background-color: tomato;
+    color: tomato;
+}
 
 .drawer-content {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    width: 100%;
     height: 100%;
-    align-items: flex-start;
-    justify-content: center;
 }
 
 .in-between {

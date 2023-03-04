@@ -1,4 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from './services/login.service';
 import { ThemeService } from './services/theme.service';
 
 @Component({
@@ -13,7 +15,9 @@ export class AppComponent implements OnInit{
   showFiller = false;
 
   constructor(
-    private themeService: ThemeService
+    private router: Router,
+    private themeService: ThemeService,
+    private loginService: LoginService
   ){}
 
   ngOnInit(){
@@ -32,5 +36,11 @@ export class AppComponent implements OnInit{
     this.isDark = !this.isDark
     localStorage.setItem('user-theme', this.isDark ? 'dark-theme' : 'light-theme')
     this.themeService.update(this.isDark ? 'dark-theme' : 'light-theme')
+  }
+
+  loginClick(){
+    console.log("login")
+    if(!this.loginService.isLogged)
+      this.router.navigate(["/login"])
   }
 }

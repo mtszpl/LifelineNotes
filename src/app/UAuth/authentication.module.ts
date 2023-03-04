@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from '../scenes/login/login.component';
+import { MaterialModule } from '../materials-module/materials.module';
 
 
 
@@ -9,7 +10,8 @@ import { LoginComponent } from '../scenes/login/login.component';
     LoginComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ]
 })
 export class AuthenticationModule { }

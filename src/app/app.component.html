@@ -1,10 +1,14 @@
 <mat-drawer-container class="app-container" [class]="isDark === true ? 'dark-theme': 'light-theme' " autosize>
     <mat-drawer #drawer class="drawer" mode="side">
-        <p>Auto-resizing sidenav</p>
-        <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-        <button (click)="showFiller = !showFiller" mat-raised-button>
-            Toggle extra text
-        </button>
+        <div class="drawer-head">
+            <p>Auto-resizing sidenav</p>
+        </div>
+        <div class="side-stuff">
+            <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+            <button (click)="showFiller = !showFiller" mat-raised-button>
+                Toggle extra text
+            </button>
+        </div>
     </mat-drawer>
 
     <mat-drawer-content>
@@ -17,7 +21,9 @@
             <button mat-button (click)="toggleMode()">
                 <mat-icon>wb_sunny</mat-icon>
             </button>
-            <mat-icon>account_circle</mat-icon>
+            <button mat-button (click)="loginClick()">
+                <mat-icon>account_circle</mat-icon>
+            </button>
         </mat-toolbar>
         <div class="drawer-content">
             <router-outlet></router-outlet>

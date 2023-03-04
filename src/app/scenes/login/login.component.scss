@@ -1,0 +1,25 @@
+@use './_login.component-theme.scss' as theme;
+
+.light-theme{
+    @include theme.light-theme;
+}
+
+.dark-theme{   
+    @include theme.dark-theme;
+}
+
+.login {
+    margin-top: 1%;
+    width: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}

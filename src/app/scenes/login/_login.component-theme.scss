@@ -1,6 +1,6 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
-@use '../styles.scss' as styles;
+@use '../../../styles.scss' as styles;
 
 
 @mixin light-theme {
@@ -10,18 +10,9 @@
     $warning-palette: map.get($color-config, 'warn');
     $basic-palette: map.get($color-config, 'basic');
 
-    .drawer-content {
+    .buttons {
         background-color: mat.get-color-from-palette($primary-palette, 50);
     }
-
-    // .drawer {
-    //     background-color: mat.get-color-from-palette($primary-palette, 700);
-    // }    
-
-    .side-stuff {
-        // background-color: mat.get-color-from-palette($primary-palette, 500);
-        background-color: tomato;          
-    } 
 }
 
 @mixin dark-theme {
@@ -30,12 +21,10 @@
     $accent-palette: map.get($color-config, 'accent');
     $warning-palette: map.get($color-config, 'warn');
     $grey-palette: map.get($color-config, 'secondary');
-
-    .drawer-content {
-        background-color: mat.get-color-from-palette($primary-palette, 700);
+    
+    .button {
+        // background-color: mat.get-color-from-palette($primary-palette, 500);
+        background-color: tomato;
     }
     
-    .drawer {
-        background-color: mat.get-color-from-palette($primary-palette, 700);
-    }
 }

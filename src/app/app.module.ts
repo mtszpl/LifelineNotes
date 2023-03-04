@@ -14,6 +14,8 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { LoginService } from './services/login.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const Routes = [
   { path: 'login', component: LoginComponent }
@@ -29,6 +31,7 @@ const Routes = [
     RouterModule.forRoot(Routes),
     BrowserAnimationsModule,
     MaterialModule,
+    HttpClientModule,
     AuthenticationModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
@@ -36,7 +39,8 @@ const Routes = [
     provideStorage(() => getStorage())
   ],
   providers: [
-    ThemeService
+    ThemeService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })
