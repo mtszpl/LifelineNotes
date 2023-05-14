@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from '../scenes/login/login.component';
-import { MaterialModule } from '../materials-module/materials.module';
+import { MaterialModule } from '../modules/materials.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
+const Routes = [
+  { path: 'view', component: LoginComponent }
+]
 
 
 @NgModule({
@@ -11,7 +16,10 @@ import { MaterialModule } from '../materials-module/materials.module';
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(Routes)
   ]
 })
 export class AuthenticationModule { }

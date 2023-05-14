@@ -1,18 +1,9 @@
-@use './_login.component-theme.scss' as theme;
-
-.light-theme{
-    @include theme.light-theme;
-}
-
-.dark-theme{   
-    @include theme.dark-theme;
-}
-
 .login {
     margin-top: 1%;
-    width: 50vh;
+    width: 100%vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .input {

@@ -1,32 +1,14 @@
-@use './_app.component-theme' as theme;
-
 .app-container {
     width: 100%;
-    height: 100%;
-}
-
-.light-theme{
-    @include theme.light-theme;
-}
-
-.dark-theme{   
-    @include theme.dark-theme;
+    height: 100vh;
 }
 
 .drawer-head {
     width: 100%;
-    background-color: tomato;
-    color: tomato;
 }
 
 .drawer-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
     height: auto;
-    width: 100%;
-    height: 100%;
 }
 
 .in-between {
@@ -35,4 +17,9 @@
 
 .drawer {
     padding: 20px;
+}
+
+.dark-mode {
+    display: flex;
+    align-items: center;
 }

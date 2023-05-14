@@ -18,15 +18,16 @@
             </button>
             <span>Lifeline Notes</span>
             <span class="in-between"></span>
-            <button mat-button (click)="toggleMode()">
+            <div class="dark-mode">
                 <mat-icon>wb_sunny</mat-icon>
-            </button>
-            <button mat-button (click)="loginClick()">
+                <mat-slide-toggle color="accent" (change)="toggleMode($event)" [checked]="isDark"></mat-slide-toggle>
+            </div>
+                <button mat-button (click)="loginClick()">
                 <mat-icon>account_circle</mat-icon>
             </button>
         </mat-toolbar>
         <div class="drawer-content">
-            <router-outlet></router-outlet>
+            <router-outlet class="outlet"></router-outlet>
         </div>
     </mat-drawer-content>
 

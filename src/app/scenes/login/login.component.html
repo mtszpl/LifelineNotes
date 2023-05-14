@@ -1,14 +1,20 @@
 <div class="login">
-    <mat-form-field class="input" appearance="fill">
-        <mat-label>Username</mat-label>
-        <input matInput>
-    </mat-form-field>
-    <mat-form-field class="input" appearance="fill">
-        <mat-label>Password</mat-label>
-        <input matInput>
-    </mat-form-field>
-    <div class="buttons">
-        <button class="button" mat-button color="accent">Login</button>
-        <button class="button" mat-button>Sign in</button>
+
+    <div class="error-msg" color="warn">
+        {{errorText}}
     </div>
+    <form [formGroup]="loginForm" name="login-form" (ngSubmit)="login()">
+        <mat-form-field class="input" appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username">
+        </mat-form-field>
+        <mat-form-field class="input" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password">
+        </mat-form-field>
+        <div class="buttons">
+            <button class="button" mat-raised-button color="primary" type="button" (click)="foo()">Sign in</button>
+            <button class="button" mat-raised-button color="accent" type="submit">Login</button>
+        </div>
+    </form>
 </div>
