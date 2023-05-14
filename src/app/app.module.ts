@@ -21,6 +21,8 @@ import { NoteViewComponent } from './scenes/note-view/note-view.component';
 import { HomeComponent } from './scenes/home/home.component';
 import { LoginGuard } from './UAuth/login.guard';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ComponentsModule } from './components/components.module';
+import { NoteInterfaceComponent } from './scenes/note-interface/note-interface.component';
 
 const Routes = [
   { path: "", component: HomeComponent},
@@ -32,7 +34,8 @@ const Routes = [
   declarations: [
     AppComponent,
     NoteViewComponent,
-    HomeComponent
+    HomeComponent,
+    NoteInterfaceComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ const Routes = [
     MaterialModule,
     HttpClientModule,
     AuthenticationModule,
+    ComponentsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

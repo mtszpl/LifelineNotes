@@ -1,11 +1,20 @@
 <div class="user-notes">
-    <h2>Authored notes</h2>
-    <span class="span"></span>
+    <div *ngIf="authoredNotes.length > 0">
+        <h2>Authored notes</h2>
+        <app-note-section [notes]="authoredNotes"></app-note-section>
+        <span class="span"></span>
+    </div>
     <mat-divider></mat-divider>
-    <h2>Notes with editor access</h2>
-    <span class="span"></span>
+    <div *ngIf="editorNotes.length > 0">
+        <h2>Notes with editor access</h2>
+        <app-note-section [notes]="editorNotes"></app-note-section>
+        <span class="span"></span>
+    </div>
     <mat-divider></mat-divider>
-    <h2>Viewable notes</h2>
-    <span class="span"></span>
+    <div *ngIf="viewableNotes.length > 0">
+        <h2>Viewable notes</h2>
+        <app-note-section [notes]="viewableNotes"></app-note-section>
+        <span class="span"></span>
+    </div>
     <mat-divider></mat-divider>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Note } from 'src/app/backendDataClasses/note';
 import { NotesService } from 'src/app/services/notes.service';
 
 @Component({
@@ -8,17 +9,23 @@ import { NotesService } from 'src/app/services/notes.service';
 })
 export class NoteViewComponent implements OnInit {
 
-  notes: any[] = []
+  authoredNotes: Note[] = []
+  editorNotes: Note[] = []
+  viewableNotes: Note[] = []
 
   constructor(
     private noteService: NotesService
   ) { }
 
   ngOnInit(): void {
-    this.noteService.getPermissionsAndNotes()
+    this.noteService.getPermissions()
     .subscribe(data => {
       console.log('data', data)
-      this.notes = data
+      data.forEach(permission => {
+        permission.accessPermission === "AUTHOR" ? this.authoredNotes.push(permission.note) :
+          permission.accessPermission === "EDITOR" ? this.editorNotes.push(permission.note) :
+          this.viewableNotes.push(permission.note)
+      })
     })
   }
 

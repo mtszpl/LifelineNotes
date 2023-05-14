@@ -1,0 +1,12 @@
+.icon {
+    width: auto;
+    cursor: pointer;
+    cursor: -moz-pointer;
+    cursor: -webkit-grabbing;
+}
+
+.icon:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}

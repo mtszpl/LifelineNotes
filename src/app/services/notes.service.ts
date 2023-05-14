@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Permission } from '../backendDataClasses/permission';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class NotesService {
   ) { }
 
 
-  getPermissionsAndNotes(): Observable<any>{
-    return this.http.get(this.permissionsApi)
+  getPermissions(): Observable<Permission[]>{
+    return this.http.get<Permission[]>(this.permissionsApi)
   }
 
 }
