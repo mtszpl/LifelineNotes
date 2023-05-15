@@ -23,6 +23,7 @@ import { LoginGuard } from './UAuth/login.guard';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 import { NoteInterfaceComponent } from './scenes/note-interface/note-interface.component';
+import { RegisterUserComponent } from './scenes/register-user/register-user.component';
 
 const Routes = [
   { path: "", component: HomeComponent},
@@ -35,7 +36,8 @@ const Routes = [
     AppComponent,
     NoteViewComponent,
     HomeComponent,
-    NoteInterfaceComponent
+    NoteInterfaceComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
