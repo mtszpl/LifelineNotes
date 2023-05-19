@@ -1,3 +1,25 @@
 <div class="note-interface">
+    <div class="toolbar">
+        <button mat-fab class="color-picker" [matMenuTriggerFor]="colorMenu" [ngStyle]="{'background-color':_selectedColor}">
+            <mat-menu #colorMenu="matMenu" class="color-menu">
+                <button mat-menu-item class="color-picker" *ngFor="let color of colors" [ngStyle]=" {'background-color': color}" (click)="selectedColor = color"></button>
+            </mat-menu>
+            <mat-divider color="accent"></mat-divider>
+        </button>
+        <button mat-fab class="width-picker" [matMenuTriggerFor]="sliderMenu">
+            <mat-icon>line_weight</mat-icon>
+        </button>
+        <mat-menu #sliderMenu="matMenu" class="slider-menu">
+            <label class="brush-info">
+                Brush size:
+            </label>
+            <label class="brush-info">
+                {{ brushSize }}
+            </label>
+            <mat-slider min="1" max="12" step="1" [value]="brushSize" showTickMarks (input)="brushSize = $event.value!">
+                <input matSliderThumb>
+            </mat-slider>
+        </mat-menu>
+    </div>
     <canvas #canvas></canvas>
 </div>
