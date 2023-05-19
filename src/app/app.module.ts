@@ -4,11 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './modules/materials.module';
+import { MaterialModule } from './materias-module/materials.module';
 import { AuthenticationModule } from './UAuth/authentication.module';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './scenes/login/login.component';
-import { ThemeService } from './services/theme.service';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -20,7 +19,6 @@ import { AuthorizerInterceptor } from './UAuth/authorizer.interceptor';
 import { NoteViewComponent } from './scenes/note-view/note-view.component';
 import { HomeComponent } from './scenes/home/home.component';
 import { LoginGuard } from './UAuth/login.guard';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 import { NoteInterfaceComponent } from './scenes/note-interface/note-interface.component';
 import { RegisterUserComponent } from './scenes/register-user/register-user.component';
@@ -28,7 +26,9 @@ import { RegisterUserComponent } from './scenes/register-user/register-user.comp
 const Routes = [
   { path: "", component: HomeComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'view/:username', canActivate: [LoginGuard], component: NoteViewComponent }
+  { path: 'view/:username', canActivate: [LoginGuard], component: NoteViewComponent },
+  { path: 'note/:id', component: NoteInterfaceComponent },
+  { path: '**', component: HomeComponent }
 ]
 
 @NgModule({

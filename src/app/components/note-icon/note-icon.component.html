@@ -1,5 +1,10 @@
-<mat-card class="icon" grabbable>
-    <mat-card-header>
-        <p>{{ note.title }}</p>
-    </mat-card-header>
-</mat-card>
+<div id="icon" (click)="noteSelected($event)"> 
+    <mat-card class="icon" grabbable>
+        <h2>
+            {{ note.title[0] }}
+        </h2>
+        <mat-card-header>
+            <p>{{ note.title }}</p>
+        </mat-card-header>
+    </mat-card>
+</div>

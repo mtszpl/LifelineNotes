@@ -1,5 +1,5 @@
 <div cdkDropList cdkDropListOrientation="horizontal"
  cdkDropListAutoScrollDisabled="false" class="note-list" (cdkDropListDropped)="drop($event)">
-    <app-note-icon *ngFor="let note of notes" cdkDrag [note]="note"></app-note-icon>
+    <app-note-icon *ngFor="let note of notes" cdkDrag [note]="note" [access]="accessPermission"></app-note-icon>
   </div>
   

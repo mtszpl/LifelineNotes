@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import { moveItemInArray} from '@angular/cdk/drag-drop';
 import { Note } from 'src/app/backendDataClasses/note';
 
 @Component({
@@ -12,6 +12,7 @@ export class NoteSectionComponent implements OnInit {
   constructor( ) { }
   
   @Input() notes: Note[] = []
+  @Input() accessPermission: string = "NONE"
   
   ngOnInit(): void {
   }

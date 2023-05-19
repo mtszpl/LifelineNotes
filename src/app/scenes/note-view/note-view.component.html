@@ -1,19 +1,23 @@
 <div class="user-notes">
+    <button mat-fab extended color="primary" id="add-note">
+        <mat-icon>plus_one</mat-icon>
+        Create note
+    </button>
     <div *ngIf="authoredNotes.length > 0">
         <h2>Authored notes</h2>
-        <app-note-section [notes]="authoredNotes"></app-note-section>
+        <app-note-section [notes]="authoredNotes" [accessPermission]="'AUTHOR'"></app-note-section>
         <span class="span"></span>
     </div>
     <mat-divider></mat-divider>
     <div *ngIf="editorNotes.length > 0">
         <h2>Notes with editor access</h2>
-        <app-note-section [notes]="editorNotes"></app-note-section>
+        <app-note-section [notes]="editorNotes" [accessPermission]="'EDITOR'"></app-note-section>
         <span class="span"></span>
     </div>
     <mat-divider></mat-divider>
     <div *ngIf="viewableNotes.length > 0">
         <h2>Viewable notes</h2>
-        <app-note-section [notes]="viewableNotes"></app-note-section>
+        <app-note-section [notes]="viewableNotes" [accessPermission]="'VIEWER'"></app-note-section>
         <span class="span"></span>
     </div>
     <mat-divider></mat-divider>

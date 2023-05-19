@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from '../scenes/login/login.component';
-import { MaterialModule } from '../modules/materials.module';
+import { MaterialModule } from '../materias-module/materials.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
