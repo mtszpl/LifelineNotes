@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     let authRequest: AuthRequest = new AuthRequest(this.loginForm.get("username")?.value, this.loginForm.get("password")?.value)
     this.loginService.login(authRequest)
     .catch(error => {
-      console.log('error', error)
       this.error = true
       this.errorText = "sth fooked up"
     })

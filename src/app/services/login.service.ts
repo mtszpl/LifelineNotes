@@ -13,7 +13,7 @@ export class LoginService {
     return this._loggedInEvent
   }
 
-  _isLogged: boolean = false
+  _isLogged: boolean = localStorage.getItem('token') !== null
   public get isLogged(): boolean{
     return this._isLogged
   }

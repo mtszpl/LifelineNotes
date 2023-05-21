@@ -65,6 +65,34 @@
         width: 95%;
     }
 }
+
+::ng-deep .mode-menu {
+    height: 100px;
+    * {
+        margin: 1%;
+    }
+
+    .rectangle {
+        border: 3px solid whitesmoke;
+        width: 80%;
+        aspect-ratio: 2 / 1;
+    }
+
+    .triangle {
+        width: 0;
+        height: 0;
+        border-left: 25% solid transparent;
+        border-right: 25% solid transparent;
+        border-bottom: 50% solid whitesmoke;
+    }
+}
+
+
+// .rectangle {
+//     width: 90%;
+//     height: 70%;
+//     background-color: whitesmoke;
+// }
     
 canvas {
     border: 2px solid rgb(31, 30, 32);

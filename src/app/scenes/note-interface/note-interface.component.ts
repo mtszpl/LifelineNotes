@@ -48,6 +48,14 @@ export class NoteInterfaceComponent implements OnInit, OnDestroy {
     "#00ff00",
     "#003300"
   ]
+
+  selectedDrawingMode: string = "offhand"
+  drawingMode: Function = this.offhandDraw
+  drawingModes: string[] = [
+    "offhand",
+    "rectangle",
+    "triangle"
+  ]
   
   constructor(
   ) { }
@@ -55,7 +63,17 @@ export class NoteInterfaceComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.ctx = this.canvas.nativeElement.getContext("2d")!
     this.canvas.nativeElement.width = window.innerWidth * this.canvasSizeXFactor;
-    this.canvas.nativeElement.height = window.innerHeight * this.canvasSizeYFactor;
+    this.canvas.nativeElement.height = window.innerHeight * this.canvasSizeYFactor
+
+    let img = new Image()
+    let imgSrc = localStorage.getItem("image")
+    if(imgSrc !== null)
+    {
+      img.src = imgSrc
+      img.onload = () => {
+      this.ctx.drawImage(img, 0, 0)
+      }
+    }
     
     this.drawSub = fromEvent(this.canvas.nativeElement, 'mousedown')
     .pipe(
@@ -68,21 +86,43 @@ export class NoteInterfaceComponent implements OnInit, OnDestroy {
       }))
     .subscribe( (e: any) => 
     {
-      let x = e.clientX - this.canvas.nativeElement.offsetLeft
-      let y = e.clientY - this.canvas.nativeElement.offsetTop
-      this.ctx.strokeStyle = this.selectedColor;
-      this.ctx.lineWidth = this.brushSize
-      this.ctx.lineTo(x, y)
-      this.ctx.stroke()
-      this.ctx.beginPath()
-      this.ctx.moveTo(x, y)
+      this.drawingMode(e)
+      this.saveLocally()
     })
     this.drawEndSub = fromEvent(this.canvas.nativeElement, 'mouseup')
     .subscribe(() => this.ctx?.beginPath())
   }
+
+  offhandDraw(e: any) {
+    let x = e.clientX - this.canvas.nativeElement.offsetLeft
+    let y = e.clientY - this.canvas.nativeElement.offsetTop
+    this.ctx.strokeStyle = this.selectedColor;
+    this.ctx.lineWidth = this.brushSize
+    this.ctx.lineTo(x, y)
+    this.ctx.stroke()
+    this.ctx.beginPath()
+    this.ctx.moveTo(x, y)
+  }
+
+  saveLocally() {
+    let image = this.canvas.nativeElement.toDataURL()
+    localStorage.setItem("image", image)
+  }
   
+  saveNote() {
+    console.log("saving")
+    let image = this.canvas.nativeElement.toDataURL()//.replace("image/png", "image/octet-stream");
+    console.log(image)
+    localStorage.setItem("image", image)
+  }
+
   ngOnDestroy(): void {
     this.drawSub.unsubscribe()
     this.drawEndSub.unsubscribe();
+    localStorage.removeItem("image")
+  }
+
+  debug() {
+    console.log(this.selectedDrawingMode)
   }
 }

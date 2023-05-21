@@ -19,7 +19,8 @@
             <span class="site-name" routerLink="/">Lifeline Notes</span>
             <span class="in-between"></span>
             <div class="dark-mode">
-                <mat-icon>wb_sunny</mat-icon>
+                <mat-icon *ngIf="isDark === false">brightness_low</mat-icon>
+                <mat-icon *ngIf="isDark === true">brightness_high</mat-icon>
                 <mat-slide-toggle color="accent" (change)="toggleMode($event)" [checked]="isDark"></mat-slide-toggle>
             </div>
             <button mat-button (click)="loginClick()">

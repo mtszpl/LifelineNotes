@@ -4,7 +4,6 @@
             <mat-menu #colorMenu="matMenu" class="color-menu">
                 <button mat-menu-item class="color-picker" *ngFor="let color of colors" [ngStyle]=" {'background-color': color}" (click)="selectedColor = color"></button>
             </mat-menu>
-            <mat-divider color="accent"></mat-divider>
         </button>
         <button mat-fab class="width-picker" [matMenuTriggerFor]="sliderMenu">
             <mat-icon>line_weight</mat-icon>
@@ -20,6 +19,19 @@
                 <input matSliderThumb>
             </mat-slider>
         </mat-menu>
+        <button mat-fab class="mode-picker" [ngClass]="selectedDrawingMode" [matMenuTriggerFor]="modeMenu">
+            <div class="rectangle"></div>
+        </button>
+        <mat-menu #modeMenu="matMenu" class="mode-menu">
+            <button mat-menu-item class="rectangle" (click)="selectedDrawingMode = 'rectangle'"></button>
+            <button mat-menu-item class="triangle" (click)="debug()" (click)="selectedDrawingMode = 'triangle'"></button>
+        </mat-menu>
+        <button mat-fab (click)="saveNote()">
+            <mat-icon>save</mat-icon>
+        </button>
+        <button mat-fab (click)="saveNote()">
+            <mat-icon>save_alt</mat-icon>
+        </button>
     </div>
     <canvas #canvas></canvas>
 </div>

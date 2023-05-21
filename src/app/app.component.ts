@@ -43,16 +43,8 @@ export class AppComponent implements OnInit {
   }
 
   onInitLogin() {
-    let nameFromStorage = localStorage.getItem('username')
-    let passwordFromStorage = localStorage.getItem('password')
-    if(nameFromStorage !== null && passwordFromStorage !== null) {
-      let request: AuthRequest = new AuthRequest(nameFromStorage, passwordFromStorage)
-      this.loginService.login(request)
-        .then(e => {
-          this.isLoggedIn = true
-        })
-        .catch(e => this.isLoggedIn = false)
-    }
+    let token = localStorage.getItem('token')
+    token !== null ? this.isLoggedIn = true : this.isLoggedIn == false
   }
 
   @HostBinding('class')
