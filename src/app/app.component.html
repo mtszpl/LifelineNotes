@@ -16,14 +16,17 @@
             <button mat-icon-button (click)="drawer.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
-            <span>Lifeline Notes</span>
+            <span class="site-name" routerLink="/">Lifeline Notes</span>
             <span class="in-between"></span>
             <div class="dark-mode">
                 <mat-icon>wb_sunny</mat-icon>
                 <mat-slide-toggle color="accent" (change)="toggleMode($event)" [checked]="isDark"></mat-slide-toggle>
             </div>
-                <button mat-button (click)="loginClick()">
+            <button mat-button (click)="loginClick()">
                 <mat-icon>account_circle</mat-icon>
+            </button>
+            <button mat-raised-button color="accent" *ngIf="isLoggedIn === true">
+                Log Out
             </button>
         </mat-toolbar>
         <div class="drawer-content">

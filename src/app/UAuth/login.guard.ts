@@ -15,10 +15,9 @@ export class LoginGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       let savedName: string | null = localStorage.getItem("username")
       let paramName: string = String(route.paramMap.get('username'))
-      console.log('savedName', savedName)
-      console.log('paramName', paramName)
-
-    return true;
+      if(savedName !== paramName)
+        return false
+      return true;
   }
   
 }

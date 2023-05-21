@@ -3,6 +3,7 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { Router } from '@angular/router';
 import { LoginService } from './services/login.service';
 import { ThemeService } from './services/theme.service';
+import { AuthRequest } from './UAuth/authRequest';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,15 @@ export class AppComponent implements OnInit {
   title = 'notes';
   showFiller = false;
 
+  _isLoggedIn: boolean = false
+  public get isLoggedIn(): boolean{
+    return this._isLoggedIn
+  }
+
+  public set isLoggedIn(isLoggedIn: boolean) {
+    this._isLoggedIn = isLoggedIn
+  }
+
   constructor(
     private router: Router,
     private themeService: ThemeService,
@@ -24,8 +34,25 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.theme = localStorage.getItem('user-theme')
     this.themeService.initTheme()
+
+    this.onInitLogin()
+    this.loginService.loggedInEvent.subscribe(() => this.loginService.isLogged = this.isLoggedIn)
+
     if (this.theme != null)
       this.theme === 'dark-theme' ? this.isDark = true : this.isDark = false
+  }
+
+  onInitLogin() {
+    let nameFromStorage = localStorage.getItem('username')
+    let passwordFromStorage = localStorage.getItem('password')
+    if(nameFromStorage !== null && passwordFromStorage !== null) {
+      let request: AuthRequest = new AuthRequest(nameFromStorage, passwordFromStorage)
+      this.loginService.login(request)
+        .then(e => {
+          this.isLoggedIn = true
+        })
+        .catch(e => this.isLoggedIn = false)
+    }
   }
 
   @HostBinding('class')
@@ -40,8 +67,16 @@ export class AppComponent implements OnInit {
   }
 
   loginClick() {
-    console.log("login")
     if (!this.loginService.isLogged)
       this.router.navigate(["/login"])
+    else {
+      let nameFromStorage = localStorage.getItem('username')
+      this.router.navigate([`/view/${nameFromStorage}`])
+    }
+  }
+
+  logoutClick(): void {
+    this.loginService.logOut()
+    this.isLoggedIn = false
   }
 }

@@ -13,7 +13,14 @@ export class LoginService {
     return this._loggedInEvent
   }
 
-  isLogged: Boolean = false
+  _isLogged: boolean = false
+  public get isLogged(): boolean{
+    return this._isLogged
+  }
+
+  public set isLogged(isLogged: boolean) {
+    this._isLogged = isLogged
+  }
 
   authEndpoint: string = "http://localhost:8080/auth/authenticate"
   authToken: string = ""
@@ -28,7 +35,6 @@ export class LoginService {
     localStorage.setItem('password', request.password)
     return this.http.post<{ token: string }>(this.authEndpoint, request)
       .forEach(token => {
-        console.log(token)
         this.authToken = token.token
         localStorage.setItem('token', this.authToken)
         this._loggedInEvent.emit()
@@ -40,5 +46,11 @@ export class LoginService {
 
   getToken() {
     return localStorage.getItem('token')
+  }
+
+  logOut(): void {
+    localStorage.removeItem('username')
+    localStorage.removeItem('password')
+    this.isLogged = false
   }
 }
