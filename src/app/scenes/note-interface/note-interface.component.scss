@@ -73,17 +73,13 @@
     }
 
     .rectangle {
-        border: 3px solid whitesmoke;
+        //border: 3px solid whitesmoke;
         width: 80%;
-        aspect-ratio: 2 / 1;
+        //aspect-ratio: 2 / 1;
     }
 
     .triangle {
-        width: 0;
-        height: 0;
-        border-left: 25% solid transparent;
-        border-right: 25% solid transparent;
-        border-bottom: 50% solid whitesmoke;
+        width: 100%;
     }
 }
 

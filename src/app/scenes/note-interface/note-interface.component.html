@@ -19,12 +19,13 @@
                 <input matSliderThumb>
             </mat-slider>
         </mat-menu>
-        <button mat-fab class="mode-picker" [ngClass]="selectedDrawingMode" [matMenuTriggerFor]="modeMenu">
-            <div class="rectangle"></div>
+        <button mat-fab class="mode-picker" [matMenuTriggerFor]="modeMenu">
+            <mat-icon svgIcon="{{selectedDrawingMode}}"></mat-icon>
         </button>
         <mat-menu #modeMenu="matMenu" class="mode-menu">
-            <button mat-menu-item class="rectangle" (click)="selectedDrawingMode = 'rectangle'"></button>
-            <button mat-menu-item class="triangle" (click)="debug()" (click)="selectedDrawingMode = 'triangle'"></button>
+            <button mat-menu-item *ngFor="let drawingMode of drawingModes" [ngClass]="drawingMode" (click)="setDrawingMode(drawingMode)">
+                <mat-icon svgIcon="{{drawingMode}}"></mat-icon>
+            </button>
         </mat-menu>
         <button mat-fab (click)="saveNote()">
             <mat-icon>save</mat-icon>
