@@ -19,6 +19,8 @@ export class NoteSectionComponent implements OnInit {
   
   drop(event: any) {
     console.log('event.previousIndex', event.previousIndex)
+    console.log('event.previousIndex', event.previousIndex)
+    console.log('event.previousIndex', event.previousIndex)
     moveItemInArray(this.notes, event.previousIndex, event.currentIndex);
   }
 
