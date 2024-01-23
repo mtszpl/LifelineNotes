@@ -17,6 +17,8 @@ export class NoteSectionComponent implements OnInit {
   ngOnInit(): void {
   }
   
+//drapenis!
+
   drop(event: any) {
     console.log('event.previousIndex', event.previousIndex)
     moveItemInArray(this.notes, event.previousIndex, event.currentIndex);
